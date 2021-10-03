@@ -1,0 +1,97 @@
+package za.ac.nwu.as.domain.dto;
+
+import za.ac.nwu.as.domain.persistence.ACC_TYPE;
+import za.ac.nwu.as.domain.persistence.ACC_TRANSACTION;
+import java.time.LocalDate;
+import java.util.Objects;
+
+public class AccountTransactionDto {
+
+    private Long ACC_TRANS_ID;
+    private ACC_TYPE ACC_TYPE_ID;
+    private Long MILES_ADDED;
+    private Long MILES_USED;
+    private LocalDate TRANSACTION_DATE;
+    private Long CLIENT_ID;
+
+    public AccountTransactionDto(Long ACC_TRANS_ID,ACC_TYPE acc_type,Long miles_added,Long miles_used,LocalDate transaction_date,Long client_id){
+        this.ACC_TYPE_ID = acc_type;
+        this.MILES_ADDED = miles_added;
+        this.MILES_USED = miles_used;
+        this.TRANSACTION_DATE = transaction_date;
+        this.CLIENT_ID = client_id;
+    }
+
+    public Long getACC_TRANS_ID() {
+        return ACC_TRANS_ID;
+    }
+
+    public void setACC_TRANS_ID(Long ACC_TRANS_ID) {
+        this.ACC_TRANS_ID = ACC_TRANS_ID;
+    }
+
+    public ACC_TYPE getACC_TYPE_ID() {
+        return ACC_TYPE_ID;
+    }
+
+    public void setACC_TYPE_ID(ACC_TYPE ACC_TYPE_ID) {
+        this.ACC_TYPE_ID = ACC_TYPE_ID;
+    }
+
+    public Long getMILES_ADDED() {
+        return MILES_ADDED;
+    }
+
+    public void setMILES_ADDED(Long MILES_ADDED) {
+        this.MILES_ADDED = MILES_ADDED;
+    }
+
+    public Long getMILES_USED() {
+        return MILES_USED;
+    }
+
+    public void setMILES_USED(Long MILES_USED) {
+        this.MILES_USED = MILES_USED;
+    }
+
+    public LocalDate getTRANSACTION_DATE() {
+        return TRANSACTION_DATE;
+    }
+
+    public void setTRANSACTION_DATE(LocalDate TRANSACTION_DATE) {
+        this.TRANSACTION_DATE = TRANSACTION_DATE;
+    }
+
+    public Long getCLIENT_ID() {
+        return CLIENT_ID;
+    }
+
+    public void setCLIENT_ID(Long CLIENT_ID) {
+        this.CLIENT_ID = CLIENT_ID;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ACC_TRANSACTION that = (ACC_TRANSACTION) o;
+        return Objects.equals(ACC_TRANS_ID, that.getACC_TRANS_ID() ) && Objects.equals(ACC_TYPE_ID, that.getACC_TYPE_ID()) && Objects.equals(MILES_ADDED, that.getMILES_ADDED()) && Objects.equals(MILES_USED, that.getMILES_USED()) && Objects.equals(TRANSACTION_DATE, that.getTRANSACTION_DATE()) && Objects.equals(CLIENT_ID, that.getCLIENT_ID());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(ACC_TRANS_ID, ACC_TYPE_ID, MILES_ADDED, MILES_USED, TRANSACTION_DATE, CLIENT_ID);
+    }
+
+    @Override
+    public String toString() {
+        return "AccountTransactionDto{" +
+                "ACC_TRANS_ID=" + ACC_TRANS_ID +
+                ", ACC_TYPE_ID=" + ACC_TYPE_ID +
+                ", MILES_ADDED=" + MILES_ADDED +
+                ", MILES_USED=" + MILES_USED +
+                ", TRANSACTION_DATE=" + TRANSACTION_DATE +
+                ", CLIENT_ID=" + CLIENT_ID +
+                '}';
+    }
+}
