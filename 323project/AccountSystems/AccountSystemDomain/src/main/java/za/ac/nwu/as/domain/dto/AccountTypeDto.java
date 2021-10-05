@@ -10,7 +10,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 
-@ApiModel(value = "ACC_TYPE", description = "adto that represents ACC_TYPE" )
+@ApiModel(value = "ACC_TYPE", description = "a dto that represents ACC_TYPE" )
 public class AccountTypeDto implements Serializable{
 
         private String MNEMONIC;

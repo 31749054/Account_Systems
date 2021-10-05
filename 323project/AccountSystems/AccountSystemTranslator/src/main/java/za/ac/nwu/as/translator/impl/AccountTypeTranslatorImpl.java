@@ -36,8 +36,44 @@ public class AccountTypeTranslatorImpl implements AccountTypeTranslator {
 
     @Override
     public AccountTypeDto create(AccountTypeDto accountTypeDto) {
-       ACC_TYPE accountType = accountTypeRepository.save(accountTypeDto.getAccountType());
-       return new AccountTypeDto(accountType);
+        try {
+            ACC_TYPE accountType = accountTypeRepository.save(accountTypeDto.getAccountType());
+            return new AccountTypeDto(accountType);
+        } catch (Exception e) {
+            throw new RuntimeException("Unable to save to the db", e);
+        }
     }
+
+
+    @Override
+    public AccountTypeDto getAccountTypeByMnemonicNativeQuery(String mnemonic) {
+        try {
+            ACC_TYPE accountType = accountTypeRepository.getAccountTypeByMnemonicNativeQuery(mnemonic);
+            return new AccountTypeDto(accountType);
+        } catch (Exception e) {
+            throw new RuntimeException("Unable to read from the db", e);
+        }
+    }
+
+
+    @Override
+    public AccountTypeDto getAccountTypeByMnemonic (String mnemonic) {
+        try {
+            ACC_TYPE accountType = accountTypeRepository.getAccountTypeByMnemonic(mnemonic);
+            return new AccountTypeDto(accountType);
+        } catch (Exception e) {
+            throw new RuntimeException("Unable to read from the db", e);
+        }
+    }
+
+    @Override
+    public AccountTypeDto getAccountTypeDtoByMnemonic (String mnemonic) {
+        try {
+           return accountTypeRepository.getAccountTypeDtoByMnemonic(mnemonic);
+        } catch (Exception e) {
+            throw new RuntimeException("Unable to read from the db", e);
+        }
+    }
+
 
 }
