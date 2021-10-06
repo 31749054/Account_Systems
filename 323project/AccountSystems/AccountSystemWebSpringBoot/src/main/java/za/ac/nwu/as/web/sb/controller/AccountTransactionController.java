@@ -19,6 +19,7 @@ import za.ac.nwu.as.logic.flow.FetchAccountTypeFlow;
 
 import java.util.List;
 
+
 @RestController
 @RequestMapping("account-transaction")
 public class AccountTransactionController {
@@ -27,7 +28,7 @@ public class AccountTransactionController {
     private final FetchAccountTransactionFlow fetchAccountTransactionFlow;
 
 
-
+    @Autowired
     public AccountTransactionController(CreateAccountTransactionFlow createAccountTransactionFlow, FetchAccountTransactionFlow fetchAccountTransactionFlow){
         this.createAccountTransactionFlow = createAccountTransactionFlow;
         this.fetchAccountTransactionFlow = fetchAccountTransactionFlow;
