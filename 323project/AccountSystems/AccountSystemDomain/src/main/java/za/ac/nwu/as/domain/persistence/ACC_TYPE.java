@@ -11,10 +11,6 @@ import java.util.Set;
 public class ACC_TYPE implements Serializable {
 
 
-    @Id
-    @SequenceGenerator(name = "ACC_TYPE_SEQ1", sequenceName = "DiscoveryRewardsCmpg323.ACC_TYPE_SEQ1",allocationSize = 1)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "ACC_TYPE_SEQ1")
-
     private Long ACC_TYPE_ID;
     private String MNEMONIC;
     private String ACC_TYPE_NAME;
@@ -29,13 +25,20 @@ public class ACC_TYPE implements Serializable {
         this.CREATION_DATE = CREATION_DATE;
 
     }
+    public ACC_TYPE(String mnemonic, String acc_type_name, LocalDate creation_date) {
+        this.MNEMONIC = mnemonic;
+        this.ACC_TYPE_NAME = acc_type_name;
+        this.CREATION_DATE = creation_date;
+    }
 
     public ACC_TYPE() {
     }
 
-    public ACC_TYPE(String mnemonic, String acc_type_name, LocalDate creation_date) {
-    }
 
+
+    @Id
+    @SequenceGenerator(name = "ACC_TYPE_SEQ1", sequenceName = "DiscoveryRewardsCmpg323.ACC_TYPE_SEQ1",allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "ACC_TYPE_SEQ1")
 
     @Column(name = "ACC_TYPE_ID")
     public Long getACC_TYPE_ID() {
@@ -47,13 +50,25 @@ public class ACC_TYPE implements Serializable {
     public String getMNEMONIC() {
         return MNEMONIC;
     }
-
     public void setMNEMONIC(String MNEMONIC) {
         this.MNEMONIC = MNEMONIC;
     }
+
+
     @Column(name = "ACC_TYPE_NAME")
     public String getACC_TYPE_NAME() {
         return ACC_TYPE_NAME;
+    }
+    public void setACC_TYPE_NAME(String ACC_TYPE_NAME) {
+        this.ACC_TYPE_NAME = ACC_TYPE_NAME;
+    }
+
+    @Column(name = "CREATION_DATE")
+    public LocalDate getCREATION_DATE() {
+        return CREATION_DATE;
+    }
+    public void setCREATION_DATE(LocalDate CREATION_DATE) {
+        this.CREATION_DATE = CREATION_DATE;
     }
 
     @OneToMany(targetEntity = ACC_TRANSACTION.class, fetch = FetchType.LAZY, mappedBy = "ACC_TYPE_ID",orphanRemoval = true, cascade = CascadeType.PERSIST)
@@ -65,17 +80,8 @@ public class ACC_TYPE implements Serializable {
         this.acc_transactions = accountTransactions;
     }
 
-    public void setACC_TYPE_NAME(String ACC_TYPE_NAME) {
-        this.ACC_TYPE_NAME = ACC_TYPE_NAME;
-    }
-    @Column(name = "CREATION_DATE")
-    public LocalDate getCREATION_DATE() {
-        return CREATION_DATE;
-    }
 
-    public void setCREATION_DATE(LocalDate CREATION_DATE) {
-        this.CREATION_DATE = CREATION_DATE;
-    }
+
 
     @Override
     public boolean equals(Object o) {

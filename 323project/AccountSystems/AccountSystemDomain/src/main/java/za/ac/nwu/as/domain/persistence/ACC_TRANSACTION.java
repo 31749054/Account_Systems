@@ -27,6 +27,8 @@ public class ACC_TRANSACTION implements Serializable {
         this.CLIENT_ID = CLIENT_ID;
     }
 
+    public ACC_TRANSACTION() {
+    }
 
     @Id
     @SequenceGenerator(name = "ACC_TRANSACTION_SEQ", sequenceName = "DiscoveryRewardsCmpg323.ACC_TRANSACTION_SEQ",allocationSize = 1)
