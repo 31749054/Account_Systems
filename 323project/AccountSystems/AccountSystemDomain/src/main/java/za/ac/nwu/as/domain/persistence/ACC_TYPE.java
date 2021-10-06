@@ -37,8 +37,8 @@ public class ACC_TYPE implements Serializable {
 
 
     @Id
-    @SequenceGenerator(name = "ACC_TYPE_SEQ1", sequenceName = "DiscoveryRewardsCmpg323.ACC_TYPE_SEQ1",allocationSize = 1)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "ACC_TYPE_SEQ1")
+    @SequenceGenerator(name = "ACC_TYPE_SEQ", sequenceName = "DiscoveryRewardsCmpg323.ACC_TYPE_SEQ",allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "ACC_TYPE_SEQ")
 
     @Column(name = "ACC_TYPE_ID")
     public Long getACC_TYPE_ID() {
