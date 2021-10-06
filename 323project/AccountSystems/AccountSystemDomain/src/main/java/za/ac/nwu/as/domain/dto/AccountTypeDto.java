@@ -44,7 +44,6 @@ public class AccountTypeDto implements Serializable{
         public String getMNEMONIC() {
             return MNEMONIC;
         }
-
         public void setMNEMONIC(String MNEMONIC) {
             this.MNEMONIC = MNEMONIC;
         }
@@ -61,7 +60,6 @@ public class AccountTypeDto implements Serializable{
         public String getACC_TYPE_NAME() {
             return ACC_TYPE_NAME;
         }
-
         public void setACC_TYPE_NAME(String ACC_TYPE_NAME) {
             this.ACC_TYPE_NAME = ACC_TYPE_NAME;
         }
@@ -79,7 +77,6 @@ public class AccountTypeDto implements Serializable{
         public LocalDate getCREATION_DATE() {
             return CREATION_DATE;
         }
-
         public void setCREATION_DATE(LocalDate CREATION_DATE) {
             this.CREATION_DATE = CREATION_DATE;
         }

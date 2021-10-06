@@ -2,10 +2,12 @@ package za.ac.nwu.as.domain.dto;
 
 import za.ac.nwu.as.domain.persistence.ACC_TYPE;
 import za.ac.nwu.as.domain.persistence.ACC_TRANSACTION;
+
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Objects;
 
-public class AccountTransactionDto {
+public class AccountTransactionDto implements Serializable {
 
     private Long ACC_TRANS_ID;
     private ACC_TYPE ACC_TYPE_ID;
@@ -14,7 +16,10 @@ public class AccountTransactionDto {
     private LocalDate TRANSACTION_DATE;
     private Long CLIENT_ID;
 
-    public AccountTransactionDto(Long ACC_TRANS_ID,ACC_TYPE acc_type,Long miles_added,Long miles_used,LocalDate transaction_date,Long client_id){
+    public AccountTransactionDto() {
+    }
+
+    public AccountTransactionDto(Long ACC_TRANS_ID, ACC_TYPE acc_type, Long miles_added, Long miles_used, LocalDate transaction_date, Long client_id){
         this.ACC_TYPE_ID = acc_type;
         this.MILES_ADDED = miles_added;
         this.MILES_USED = miles_used;
@@ -22,10 +27,18 @@ public class AccountTransactionDto {
         this.CLIENT_ID = client_id;
     }
 
-    public Long getACC_TRANS_ID() {
-        return ACC_TRANS_ID;
+    public AccountTransactionDto(ACC_TRANSACTION accTransaction){
+        this.ACC_TRANS_ID = accTransaction.getACC_TRANS_ID();
+        this.MILES_ADDED = accTransaction.getMILES_ADDED();
+        this.MILES_USED = accTransaction.getMILES_USED();
+        this.TRANSACTION_DATE = accTransaction.getTRANSACTION_DATE();
+        this.CLIENT_ID = accTransaction.getCLIENT_ID();
     }
 
+    public ACC_TRANSACTION buildAccountTransaction(ACC_TYPE accType){
+        return new ACC_TRANSACTION(this.getACC_TRANS_ID(),accType,this.getMILES_ADDED(),this.getMILES_USED(),this.getTRANSACTION_DATE(),this.getCLIENT_ID());
+    }
+    public Long getACC_TRANS_ID() {return ACC_TRANS_ID;}
     public void setACC_TRANS_ID(Long ACC_TRANS_ID) {
         this.ACC_TRANS_ID = ACC_TRANS_ID;
     }
@@ -33,7 +46,6 @@ public class AccountTransactionDto {
     public ACC_TYPE getACC_TYPE_ID() {
         return ACC_TYPE_ID;
     }
-
     public void setACC_TYPE_ID(ACC_TYPE ACC_TYPE_ID) {
         this.ACC_TYPE_ID = ACC_TYPE_ID;
     }
@@ -41,7 +53,6 @@ public class AccountTransactionDto {
     public Long getMILES_ADDED() {
         return MILES_ADDED;
     }
-
     public void setMILES_ADDED(Long MILES_ADDED) {
         this.MILES_ADDED = MILES_ADDED;
     }
@@ -49,7 +60,6 @@ public class AccountTransactionDto {
     public Long getMILES_USED() {
         return MILES_USED;
     }
-
     public void setMILES_USED(Long MILES_USED) {
         this.MILES_USED = MILES_USED;
     }
@@ -57,7 +67,6 @@ public class AccountTransactionDto {
     public LocalDate getTRANSACTION_DATE() {
         return TRANSACTION_DATE;
     }
-
     public void setTRANSACTION_DATE(LocalDate TRANSACTION_DATE) {
         this.TRANSACTION_DATE = TRANSACTION_DATE;
     }
@@ -65,7 +74,6 @@ public class AccountTransactionDto {
     public Long getCLIENT_ID() {
         return CLIENT_ID;
     }
-
     public void setCLIENT_ID(Long CLIENT_ID) {
         this.CLIENT_ID = CLIENT_ID;
     }
