@@ -1,5 +1,6 @@
 package za.ac.nwu.as.domain.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import za.ac.nwu.as.domain.persistence.ACC_TYPE;
 import za.ac.nwu.as.domain.persistence.ACC_TRANSACTION;
 
@@ -33,11 +34,18 @@ public class AccountTransactionDto implements Serializable {
         this.MILES_USED = accTransaction.getMILES_USED();
         this.TRANSACTION_DATE = accTransaction.getTRANSACTION_DATE();
         this.CLIENT_ID = accTransaction.getCLIENT_ID();
+
     }
 
-    public ACC_TRANSACTION buildAccountTransaction(ACC_TYPE accType){
-        return new ACC_TRANSACTION(this.getACC_TRANS_ID(),accType,this.getMILES_ADDED(),this.getMILES_USED(),this.getTRANSACTION_DATE(),this.getCLIENT_ID());
+    @JsonIgnore
+    public ACC_TRANSACTION buildAccountTransaction(ACC_TYPE accountType){
+        return new ACC_TRANSACTION(this.getACC_TRANS_ID(),accountType,this.getMILES_ADDED(),this.getMILES_USED(),this.getTRANSACTION_DATE(),this.getCLIENT_ID());
     }
+
+
+
+
+
     public Long getACC_TRANS_ID() {return ACC_TRANS_ID;}
     public void setACC_TRANS_ID(Long ACC_TRANS_ID) {
         this.ACC_TRANS_ID = ACC_TRANS_ID;

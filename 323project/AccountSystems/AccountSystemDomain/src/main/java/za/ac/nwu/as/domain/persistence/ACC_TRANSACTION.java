@@ -8,7 +8,7 @@ import java.time.LocalDate;
 import java.util.Objects;
 
 @Entity
-@Table(name = "ACC_TRANSACTION",schema = "DiscoveryRewardsCmpg323")
+@Table(name = "ACC_TRANSACTION",schema = "JOHAN")
 public class ACC_TRANSACTION implements Serializable {
 
     private Long ACC_TRANS_ID;
@@ -31,7 +31,7 @@ public class ACC_TRANSACTION implements Serializable {
     }
 
     @Id
-    @SequenceGenerator(name = "ACC_TRANSACTION_SEQ", sequenceName = "DiscoveryRewardsCmpg323.ACC_TRANSACTION_SEQ",allocationSize = 1)
+    @SequenceGenerator(name = "ACC_TRANSACTION_SEQ", sequenceName = "JOHAN.ACC_TRANSACTION_SEQ",allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "ACC_TRANSACTION_SEQ")
 
 
@@ -48,6 +48,25 @@ public class ACC_TRANSACTION implements Serializable {
     public ACC_TYPE getACC_TYPE_ID() {
         return ACC_TYPE_ID;
     }
+
+
+
+
+
+
+
+//    @OneToOne(targetEntity = ACC_TRANSACTION.class, fetch = FetchType.LAZY, mappedBy = "acc_Transaction"){
+//        public ACC_TRANSACTION get{
+//            return getCLIENT_ID();
+//        }
+//    }
+
+
+
+
+
+
+
 
     public void setACC_TYPE_ID(ACC_TYPE ACC_TYPE_ID) {
         this.ACC_TYPE_ID = ACC_TYPE_ID;

@@ -7,7 +7,7 @@ import java.util.Objects;
 import java.util.Set;
 
 @Entity
-@Table(name = "ACC_TYPE" ,schema = "DiscoveryRewardsCmpg323")
+@Table(name = "ACC_TYPE" ,schema = "JOHAN")
 public class ACC_TYPE implements Serializable {
 
 
@@ -37,7 +37,7 @@ public class ACC_TYPE implements Serializable {
 
 
     @Id
-    @SequenceGenerator(name = "ACC_TYPE_SEQ", sequenceName = "DiscoveryRewardsCmpg323.ACC_TYPE_SEQ",allocationSize = 1)
+    @SequenceGenerator(name = "ACC_TYPE_SEQ", sequenceName = "JOHAN.ACC_TYPE_SEQ",allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "ACC_TYPE_SEQ")
 
     @Column(name = "ACC_TYPE_ID")
