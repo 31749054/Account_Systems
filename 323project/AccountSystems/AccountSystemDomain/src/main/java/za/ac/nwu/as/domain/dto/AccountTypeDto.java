@@ -42,6 +42,7 @@ public class AccountTypeDto implements Serializable{
                 example = "MILES",
                 required = true)
         public String getMNEMONIC() {
+
             return MNEMONIC;
         }
         public void setMNEMONIC(String MNEMONIC) {
@@ -73,7 +74,6 @@ public class AccountTypeDto implements Serializable{
                 example = "2020-01-01",
                 allowEmptyValue = true,
                 required = false)
-
         public LocalDate getCREATION_DATE() {
             return CREATION_DATE;
         }

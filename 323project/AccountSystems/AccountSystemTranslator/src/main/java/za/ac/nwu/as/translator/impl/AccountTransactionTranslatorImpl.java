@@ -27,5 +27,10 @@ public class AccountTransactionTranslatorImpl implements AccountTransactionTrans
         return acc_transactions;
     }
 
+    @Override
+    public ACC_TRANSACTION getAccountTransactionByPk(Long transactionId) {
+        return repo.findById(transactionId).orElse(null);
+    }
+
 
 }

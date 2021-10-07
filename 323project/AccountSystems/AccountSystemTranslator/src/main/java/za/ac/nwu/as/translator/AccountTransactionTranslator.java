@@ -8,4 +8,6 @@ public interface AccountTransactionTranslator {
     ACC_TRANSACTION save(ACC_TRANSACTION acc_transaction);
 
     List<ACC_TRANSACTION> getAllAccountTransactions();
+
+    ACC_TRANSACTION getAccountTransactionByPk(Long transactionId);
 }

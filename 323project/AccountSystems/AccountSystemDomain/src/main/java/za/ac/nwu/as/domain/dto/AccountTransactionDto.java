@@ -44,6 +44,11 @@ public class AccountTransactionDto implements Serializable {
 
 
 
+//    //LINKING
+    public String getAccountTypeByMnemonic() {
+        return null;
+    }
+
 
 
     public Long getACC_TRANS_ID() {return ACC_TRANS_ID;}
@@ -110,4 +115,6 @@ public class AccountTransactionDto implements Serializable {
                 ", CLIENT_ID=" + CLIENT_ID +
                 '}';
     }
+
+
 }

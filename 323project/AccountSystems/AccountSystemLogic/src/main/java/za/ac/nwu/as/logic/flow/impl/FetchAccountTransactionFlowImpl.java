@@ -28,9 +28,15 @@ public  class FetchAccountTransactionFlowImpl implements FetchAccountTransaction
         return accountTransactionDtos;
     }
 
+
+
+
+    //moet verander
     @Override
-    public AccountTransactionDto getAccountTransactionID(Long transactionID) {
-        return null;
+    public AccountTransactionDto getAccountTransactionById(Long transactionId) {
+        ACC_TRANSACTION acc_transaction = translator.getAccountTransactionByPk(transactionId);
+        return null != acc_transaction ? new AccountTransactionDto(acc_transaction) :null;
+//    return null;
     }
 
 
