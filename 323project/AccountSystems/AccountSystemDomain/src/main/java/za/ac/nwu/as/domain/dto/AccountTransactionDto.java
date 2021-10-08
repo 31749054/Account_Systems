@@ -17,10 +17,11 @@ public class AccountTransactionDto implements Serializable {
     private LocalDate TRANSACTION_DATE;
     private Long CLIENT_ID;
 
-    public AccountTransactionDto() {
-    }
+//    public AccountTransactionDto() {
+//    }
 
     public AccountTransactionDto(Long ACC_TRANS_ID, String accountTypeByMnemonic, Long miles_added, Long miles_used, LocalDate transaction_date, Long client_id){
+
         this.AccountTypeByMnemonic = accountTypeByMnemonic;
         this.MILES_ADDED = miles_added;
         this.MILES_USED = miles_used;
@@ -30,11 +31,14 @@ public class AccountTransactionDto implements Serializable {
 
     public AccountTransactionDto(ACC_TRANSACTION accTransaction){
         this.ACC_TRANS_ID = accTransaction.getACC_TRANS_ID();
+        this.AccountTypeByMnemonic = accTransaction.getACC_TYPE_ID().getMNEMONIC();
         this.MILES_ADDED = accTransaction.getMILES_ADDED();
         this.MILES_USED = accTransaction.getMILES_USED();
         this.TRANSACTION_DATE = accTransaction.getTRANSACTION_DATE();
         this.CLIENT_ID = accTransaction.getCLIENT_ID();
 
+    }
+    public AccountTransactionDto() {
     }
 
 
