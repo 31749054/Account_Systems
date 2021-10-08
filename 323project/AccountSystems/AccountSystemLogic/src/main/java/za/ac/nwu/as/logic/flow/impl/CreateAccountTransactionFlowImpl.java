@@ -31,16 +31,11 @@ public class CreateAccountTransactionFlowImpl implements CreateAccountTransactio
     public AccountTransactionDto create(AccountTransactionDto accountTransactionDto){
         accountTransactionDto.setACC_TRANS_ID(null);
 
-       ACC_TYPE acc_type = fetchAccountTypeFlow.getAccountTypeDbEntityByMnemonic(
-                accountTransactionDto.getAccountTypeByMnemonic());
-        ACC_TRANSACTION accTransaction = accountTransactionDto.buildAccountTransaction(acc_type);
+       ACC_TYPE acc_type = fetchAccountTypeFlow.getAccountTypeDbEntityByMnemonic(accountTransactionDto.getAccountTypeByMnemonic());
+        ACC_TRANSACTION acc_transaction = accountTransactionDto.buildAccountTransaction(acc_type);
 
-        ACC_TRANSACTION createdAcc_transaction = accountTransactionTranslator.save(accTransaction);
+        ACC_TRANSACTION createdAcc_transaction = accountTransactionTranslator.save(acc_transaction);
 
-//        if (null != accountTransactionDto.getACC_TRANS_ID()){
-//            ACC_TRANSACTION acc_transaction = accountTransactionDto.getACC_TRANS_ID().buildAccountTransaction(createdAcc_transaction);
-//            accountTransactionTranslator.save(acc_transaction);
-//        }
 
         return new AccountTransactionDto(createdAcc_transaction);
     }
