@@ -21,7 +21,7 @@ public class AccountTransactionDto implements Serializable {
 //    }
 
     public AccountTransactionDto(Long ACC_TRANS_ID, String accountTypeByMnemonic, Long miles_added, Long miles_used, LocalDate transaction_date, Long client_id){
-
+        this.ACC_TRANS_ID = ACC_TRANS_ID;
         this.AccountTypeByMnemonic = accountTypeByMnemonic;
         this.MILES_ADDED = miles_added;
         this.MILES_USED = miles_used;
