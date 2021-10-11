@@ -74,6 +74,11 @@ public class AccountTransactionDto implements Serializable {
         return MILES_USED;
     }
 
+    // public void setMILES_USED(Long MILES_USED) {
+    //        this.MILES_USED = MILES_USED;
+     //  public new MilesTotal = MILES_USED + MilesTotal;
+    //    }
+
     public void setMILES_USED(Long MILES_USED) {
         this.MILES_USED = MILES_USED;
     }

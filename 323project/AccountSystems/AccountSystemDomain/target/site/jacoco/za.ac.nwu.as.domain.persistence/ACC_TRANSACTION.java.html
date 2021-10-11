@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ACC_TRANSACTION.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">AccountSystemDomain</a> &gt; <a href="index.source.html" class="el_package">za.ac.nwu.as.domain.persistence</a> &gt; <span class="el_source">ACC_TRANSACTION.java</span></div><h1>ACC_TRANSACTION.java</h1><pre class="source lang-java linenums">package za.ac.nwu.as.domain.persistence;
+
+
+
+import javax.persistence.*;
+import java.io.Serializable;
+import java.time.LocalDate;
+import java.util.Objects;
+
+@Entity
+@Table(name = &quot;ACC_TRANSACTION&quot;,schema = &quot;JOHAN&quot;)
+public class ACC_TRANSACTION implements Serializable {
+
+    private Long ACC_TRANS_ID;
+    private ACC_TYPE ACC_TYPE_ID;
+    private Long MILES_ADDED;
+    private Long MILES_USED;
+    private LocalDate TRANSACTION_DATE;
+    private Long CLIENT_ID;
+
+<span class="nc" id="L21">    public ACC_TRANSACTION(Long ACC_TRANS_ID, ACC_TYPE ACC_TYPE_ID, Long MILES_ADDED, Long MILES_USED, LocalDate TRANSACTION_DATE, Long CLIENT_ID) {</span>
+<span class="nc" id="L22">        this.ACC_TRANS_ID = ACC_TRANS_ID;</span>
+<span class="nc" id="L23">        this.ACC_TYPE_ID = ACC_TYPE_ID;</span>
+<span class="nc" id="L24">        this.MILES_ADDED = MILES_ADDED;</span>
+<span class="nc" id="L25">        this.MILES_USED = MILES_USED;</span>
+<span class="nc" id="L26">        this.TRANSACTION_DATE = TRANSACTION_DATE;</span>
+<span class="nc" id="L27">        this.CLIENT_ID = CLIENT_ID;</span>
+<span class="nc" id="L28">    }</span>
+
+<span class="nc" id="L30">    public ACC_TRANSACTION() {</span>
+<span class="nc" id="L31">    }</span>
+
+    @Id
+    @SequenceGenerator(name = &quot;ACC_TRANSACTION_SEQ&quot;, sequenceName = &quot;JOHAN.ACC_TRANSACTION_SEQ&quot;,allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = &quot;ACC_TRANSACTION_SEQ&quot;)
+
+
+    @Column(name = &quot;ACC_TRANS_ID&quot;)
+    public Long getACC_TRANS_ID() {
+        return ACC_TRANS_ID;
+    }
+
+    public void setACC_TRANS_ID(Long ACC_TRANS_ID) {
+<span class="nc" id="L44">        this.ACC_TRANS_ID = ACC_TRANS_ID;</span>
+<span class="nc" id="L45">    }</span>
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = &quot;ACC_TYPE_ID&quot;)
+    public ACC_TYPE getACC_TYPE_ID() {
+<span class="nc" id="L49">        return ACC_TYPE_ID;</span>
+    }
+
+
+
+
+
+
+
+//    @OneToOne(targetEntity = ACC_TRANSACTION.class, fetch = FetchType.LAZY, mappedBy = &quot;acc_Transaction&quot;){
+//        public ACC_TRANSACTION get{
+//            return getCLIENT_ID();
+//        }
+//    }
+
+
+
+
+
+
+
+
+    public void setACC_TYPE_ID(ACC_TYPE ACC_TYPE_ID) {
+<span class="nc" id="L72">        this.ACC_TYPE_ID = ACC_TYPE_ID;</span>
+<span class="nc" id="L73">    }</span>
+    @Column(name = &quot;MILES_ADDED&quot;)
+    public Long getMILES_ADDED() {
+<span class="nc" id="L76">        return MILES_ADDED;</span>
+    }
+
+    public void setMILES_ADDED(Long MILES_ADDED) {
+<span class="nc" id="L80">        this.MILES_ADDED = MILES_ADDED;</span>
+<span class="nc" id="L81">    }</span>
+    @Column(name = &quot;MILES_USED&quot;)
+    public Long getMILES_USED() {
+<span class="nc" id="L84">        return MILES_USED;</span>
+    }
+
+    public void setMILES_USED(Long MILES_USED) {
+<span class="nc" id="L88">        this.MILES_USED = MILES_USED;</span>
+<span class="nc" id="L89">    }</span>
+    @Column(name = &quot;TRANSACTION_DATE&quot;)
+    public LocalDate getTRANSACTION_DATE() {
+<span class="nc" id="L92">        return TRANSACTION_DATE;</span>
+    }
+
+    public void setTRANSACTION_DATE(LocalDate TRANSACTION_DATE) {
+<span class="nc" id="L96">        this.TRANSACTION_DATE = TRANSACTION_DATE;</span>
+<span class="nc" id="L97">    }</span>
+    @Column(name = &quot;CLIENT_ID&quot;)
+    public Long getCLIENT_ID() {
+<span class="nc" id="L100">        return CLIENT_ID;</span>
+    }
+
+    public void setCLIENT_ID(Long CLIENT_ID) {
+<span class="nc" id="L104">        this.CLIENT_ID = CLIENT_ID;</span>
+<span class="nc" id="L105">    }</span>
+
+
+
+    @Override
+    public boolean equals(Object o) {
+<span class="nc bnc" id="L111" title="All 2 branches missed.">        if (this == o) return true;</span>
+<span class="nc bnc" id="L112" title="All 4 branches missed.">        if (o == null || getClass() != o.getClass()) return false;</span>
+<span class="nc" id="L113">        ACC_TRANSACTION that = (ACC_TRANSACTION) o;</span>
+<span class="nc bnc" id="L114" title="All 12 branches missed.">        return Objects.equals(ACC_TRANS_ID, that.ACC_TRANS_ID) &amp;&amp; Objects.equals(ACC_TYPE_ID, that.ACC_TYPE_ID) &amp;&amp; Objects.equals(MILES_ADDED, that.MILES_ADDED) &amp;&amp; Objects.equals(MILES_USED, that.MILES_USED) &amp;&amp; Objects.equals(TRANSACTION_DATE, that.TRANSACTION_DATE) &amp;&amp; Objects.equals(CLIENT_ID, that.CLIENT_ID);</span>
+    }
+
+    @Override
+    public int hashCode() {
+<span class="nc" id="L119">        return Objects.hash(ACC_TRANS_ID, ACC_TYPE_ID, MILES_ADDED, MILES_USED, TRANSACTION_DATE, CLIENT_ID);</span>
+    }
+
+    @Override
+    public String toString() {
+<span class="nc" id="L124">        return &quot;ACC_TRANSACTION{&quot; +</span>
+                &quot;ACC_TRANS_ID=&quot; + ACC_TRANS_ID +
+                &quot;, ACC_TYPE_ID=&quot; + ACC_TYPE_ID +
+                &quot;, MILES_ADDED=&quot; + MILES_ADDED +
+                &quot;, MILES_USED=&quot; + MILES_USED +
+                &quot;, TRANSACTION_DATE=&quot; + TRANSACTION_DATE +
+                &quot;, CLIENT_ID=&quot; + CLIENT_ID +
+                '}';
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.3.201901230119</span></div></body></html>

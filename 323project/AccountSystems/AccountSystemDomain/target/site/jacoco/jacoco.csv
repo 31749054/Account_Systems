@@ -1,0 +1,6 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+AccountSystemDomain,za.ac.nwu.as.domain.persistence,ACC_TRANSACTION,191,0,18,0,33,0,25,0,16,0
+AccountSystemDomain,za.ac.nwu.as.domain.persistence,ACC_TYPE,162,0,14,0,32,0,22,0,15,0
+AccountSystemDomain,za.ac.nwu.as.domain.service,GeneralResponse,79,0,10,0,12,0,11,0,6,0
+AccountSystemDomain,za.ac.nwu.as.domain.dto,AccountTransactionDto,239,0,18,0,43,0,28,0,19,0
+AccountSystemDomain,za.ac.nwu.as.domain.dto,AccountTypeDto,145,0,12,0,28,0,19,0,13,0
